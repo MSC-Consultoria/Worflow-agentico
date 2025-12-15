@@ -1,0 +1,3 @@
+# PIPELINE_ENGINE_PYTHON_INTERFACE.md
+
+Formal contract.

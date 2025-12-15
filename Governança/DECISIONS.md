@@ -1,0 +1,3 @@
+# DECISIONS.md
+
+Formal contract.

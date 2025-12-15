@@ -1,0 +1,3 @@
+# PLANNING INPUTS
+
+Defined.

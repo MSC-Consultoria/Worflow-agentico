@@ -1,0 +1,3 @@
+# TESTS OUTPUTS
+
+Defined.

@@ -16,7 +16,7 @@ Fluxo obrigatório de decisão e aprovação para mudanças relevantes em sistem
 5. **Conformidade** — LGPD/PII, retenção e trilhas de auditoria.
 6. **SRE/Plataforma** — impacto em confiabilidade, quotas, escalabilidade e custos.
 7. **Qualidade** — testes automatizados, benchmarks e critérios de aceite.
-8. **Aprovação final** — um aprovador de negócio e um técnico (duplo-par), seguindo matriz de responsabilidade definida na equipe.
+8. **Aprovação final** — um aprovador de negócio e um técnico (duplo-par), seguindo matriz de responsabilidade definida na equipe. **June** é a owner padrão de produto/negócio; o lead técnico é designado por serviço.
 
 ## 3) Gates obrigatórios antes de merge/deploy
 - **Checklist de segurança** concluído e assinado (ver `SECURITY_CHECKLIST.md`).
@@ -25,6 +25,11 @@ Fluxo obrigatório de decisão e aprovação para mudanças relevantes em sistem
 - **Validação de rollback**: plano testado ou comprovadamente reversível.
 - **Documentação** atualizada (pipelines, memória e APIs) quando afetadas.
 - **Observabilidade**: métricas/alerts atualizados para o novo comportamento.
+
+## 3.1) Stack de deploy aprovada
+- **Firebase (Google)**: serviços web e autenticados preferencialmente hospedados aqui.
+- **Streamlit + Supabase**: para demos ou painéis; sempre armazenar dados em Supabase quando usar Streamlit.
+- **Hugging Face Spaces**: permitido para protótipos/ML; tokens devem ficar em variáveis de ambiente ou secret stores.
 
 ## 4) Exceções e desvios
 - Exceções só são permitidas para incidentes críticos (SEV-1) ou correções de disponibilidade.

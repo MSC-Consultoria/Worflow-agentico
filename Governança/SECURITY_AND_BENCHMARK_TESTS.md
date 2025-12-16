@@ -49,3 +49,20 @@ Classificação:
 - Resultados de testes e benchmarks devem ser publicados no PR (logs ou artefatos).
 - Aplicar labels `qa-passed`, `security-passed` ou `benchmark-approved` conforme responsáveis.
 - Falhas devem abrir issue vinculada ao PR com plano de correção.
+
+## 7) Casos de teste (amostra)
+Casos para reforçar comportamentos críticos. Use como base mínima; adapte por serviço.
+
+### Testes positivos
+- **Autorização válida**: chamada autenticada com escopo correto retorna 200 e payload esperado.
+- **Rollback seguro**: pipeline falho executa compensação e deixa estado consistente.
+- **Benchmarks estáveis**: latência p95 aumenta <3% após mudança não-performática.
+
+### Testes negativos
+- **Token inválido**: requisição com token expirado retorna 401 e não gera efeitos colaterais.
+- **Input inválido**: payload fora do schema rejeitado com 400 e mensagem de validação.
+- **Recurso sem permissão**: usuário sem papel necessário recebe 403 e auditoria registra tentativa.
+- **Regressão de performance**: aumento de p95 >5% bloqueia merge e gera alerta.
+- **Injeção de segredo**: varredura detecta chave hardcoded e bloqueia pipeline.
+
+Uma lista CSV pronta para Stax/Google Sheets está em `Governança/stax_test_catalog.csv`.

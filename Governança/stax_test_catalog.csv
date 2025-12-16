@@ -1,0 +1,11 @@
+test_id,category,type,scenario,input,expected_result,blocking_criteria,severity
+TST-001,Auth,positive,"Autorização válida retorna dados permitidos","GET /resource with valid token and scope","HTTP 200, payload conforme contrato","Falha bloqueia merge e release","Medium"
+TST-002,Security,negative,"Token expirado é rejeitado","GET /resource with expired token","HTTP 401, nenhum efeito colateral","Falha bloqueia merge","High"
+TST-003,Validation,negative,"Payload fora do schema","POST /resource with invalid JSON field","HTTP 400 com mensagem de validação","Falha bloqueia merge","High"
+TST-004,Permissions,negative,"Acesso sem papel requerido","POST /admin/op with basic user","HTTP 403, auditoria registrada","Falha bloqueia merge","High"
+TST-005,Resilience,positive,"Rollback seguro após falha","Pipeline stage falha com compensação configurada","Estado final consistente, eventos de compensação registrados","Falha bloqueia deploy","High"
+TST-006,Performance,positive,"Benchmark estável","Rota crítica após mudança não-performática","p95 aumenta <3% e throughput dentro do limite","Falha abre follow-up antes do merge","Medium"
+TST-007,Performance,negative,"Regressão de latência","Rota crítica com nova dependência","p95 aumenta >5%","Bloqueia merge até correção","High"
+TST-008,Security,negative,"Detecção de segredo hardcoded","Varredura SAST/secrets","Pipeline marca achado e falha","Bloqueia merge até remoção","Critical"
+TST-009,Data,negative,"Log com PII sem máscara","Execução padrão com logging","PII não pode aparecer; caso apareça, falha","Bloqueia merge e abre incidente","Critical"
+TST-010,Observability,positive,"Eventos completos do pipeline","Execução normal","Eventos incluem trace_id, correlation_id, requester, version","Falha abre follow-up antes do deploy","Medium"

@@ -2,6 +2,12 @@
 
 Registro resumido de decisões, próximos passos e ideias de projeto.
 
+## Decisões — 2025-12-16
+- Abrir issues separadas para contratos de guardrails, testes de segurança, Pipeline Engine e Memória, cada uma com branch dedicada `feature/governanca-<tema>`.
+- Para cada branch, produzir PR curto com checklist de revisão obrigatório e descrição contendo riscos conhecidos e passos de validação manual realizados.
+- Criar issue priorizada para treinamento de embeddings no Hugging Face via Colab, com notebook Jupyter pronto e branch `feature/governanca-embedding-colab`.
+- Criar issue para configurar testes de aprendizado por reforço no Hugging Face alinhado ao guia OpenEvals/tool-calling, com branch `feature/governanca-rl-hf-tests` e documentação técnica futura.
+
 ## Próximos passos (ação)
 - Publicar catálogo de testes no repositório de automação e integrar no pipeline CI.
 - Definir owners para aprovação dupla (técnico + domínio) e aplicar labels automáticos.

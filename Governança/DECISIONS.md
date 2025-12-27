@@ -14,7 +14,7 @@ Registro resumido de decisões, próximos passos e ideias de projeto.
 - **Memória compartilhada de políticas**: serviço leve para servir glossário, guardrails e decisões aprovadas com versionamento.
 
 ## Plano detalhado — Hugging Face Space
-1) Variáveis/segredos: definir `HUGGINGFACE_API_TOKEN` no ambiente (NÃO commitar). Opcional: `HF_SPACE_NAME=workflow-space`.
+1) Variáveis/segredos: definir `HUGGINGFACE_API_TOKEN` no ambiente (NÃO commitar). Use o token fornecido (hf_...) apenas via secret manager/variável. Opcional: `HF_SPACE_NAME=workflow-space`.
 2) Setup local: usar script `scripts/hf_connection_test.py` para validar token e permissão de criação/listagem.
 3) Deploy inicial: Space mínimo (API echo) a partir de template; habilitar privacy conforme necessidade.
 4) Integração com Colab: notebook de provisionamento que consome o token de secret (Colab/Secrets) e publica atualização no Space.
